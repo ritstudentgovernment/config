@@ -1,0 +1,13 @@
+# /etc/systemd/system/meteor.service
+
+[Service]
+ExecStart=/bin/sh -c "/bin/node /var/www/petitions/main.js"
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=meteor
+User=nginx
+Environment=NODE_ENV=production LDAP_URL=ldaps://ldap.rit.edu MAIL_URL=smtp://username@main.ad.rit.edu:password@mymail.ad.rit.edu:587 "METEOR_SETTINGS={"public":{"ga":{"account":"UA-XXXXXXXX-Y"}}}" MONGO_URL=mongodb://username:password@127.0.0.1:27017/pawprints PORT=4006 ROOT_URL=http://localhost
+
+[Install]
+WantedBy=multi-user.target
