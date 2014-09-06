@@ -8,6 +8,8 @@ All of our servers run on RHEL 6/7.
 Node / Meteor.js
 ----------------
 
+![Node.js Production Stack](/img/node.png?raw=true "Node.js Production Stack")
+
 The node production stack uses NGINX, systemd.service, node processes, and MongoDB.
 
 - NGINX serves as a reverse proxy SSL server and load balancer.
