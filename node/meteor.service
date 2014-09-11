@@ -1,5 +1,9 @@
 # /etc/systemd/system/meteor.service
 
+[Unit]
+Description=SystemD startup script for meteor
+After=mongod.service
+
 [Service]
 ExecStart=/bin/sh -c "/bin/node /var/www/petitions/main.js"
 Restart=always
