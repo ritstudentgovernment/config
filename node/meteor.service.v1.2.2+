@@ -1,0 +1,14 @@
+# /etc/systemd/system/meteor.service
+# Use this version for PawPrints releases >=1.2.1
+
+[Service]
+ExecStart=/bin/sh -c "/bin/node /var/www/petitions/bundle/main.js"
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=meteor
+User=nginx
+Environment=NODE_ENV=production METEOR_SETTINGS={"LDAP_URL":"ldaps://ldap.rit.edu","MAIL_URL":"smtp://username@main.ad.rit.edu:password@mymail.ad.rit.edu:587","public":{"ga":{"account":"UA-XXXXXXXX-Y"},"root_url":"https://pawprints-dev.rit.edu"}} MONGO_URL=mongodb://dbUser:dbSecret@127.0.0.1:27017/dbName PORT=4006 ROOT_URL=https://pawprints-dev.rit.edu/ METEOR_PKG_SPIDERABLE_PHANTOMJS_ARGS=--ignore-ssl-errors=true
+
+[Install]
+WantedBy=multi-user.target
